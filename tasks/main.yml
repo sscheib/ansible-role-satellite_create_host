@@ -8,6 +8,7 @@
     file: 'create_host.yml'
   vars:
     __host: '{{ __t_host }}'
+  no_log: true
   loop: '{{ _sat_hosts }}'
   loop_control:
     loop_var: '__t_host'
