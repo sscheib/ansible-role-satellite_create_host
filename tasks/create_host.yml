@@ -1,0 +1,60 @@
+---
+- name: 'Create host in Satellite'
+  redhat.satellite.host:
+    # Satellite authentication variables
+    username: '{{ _sat_username }}'
+    password: '{{ _sat_password }}'
+    server_url: '{{ _sat_server_url }}'
+    validate_certs: '{{ _sat_validate_certs }}'
+
+    # host variables
+    name: '{{ __t_host.name }}'
+    activation_keys: >-
+      {{
+        __t_host.activation_keys | join(',')
+        if __t_host.activation_keys is defined
+        and __t_host.activation_keys != ''
+        and __t_host.activation_keys != None
+        else
+        omit
+      }}
+    architecture: '{{ __t_host.architecture | default(omit) }}'
+    build: '{{ __t_host.build | default(omit) }}'
+    comment: '{{ __t_host.comment | default(omit) }}'
+    compute_attributes: '{{ __t_host.compute_attributes | default(omit) }}'
+    compute_profile: '{{ __t_host.compute_profile | default(omit) }}'
+    compute_resource: '{{ __t_host.compute_resource | default(omit) }}'
+    config_groups: '{{ __t_host.config_groups | default(omit) }}'
+    content_source: '{{ __t_host.content_source | default(omit) }}'
+    content_view: '{{ __t_host.content_view | default(omit) }}'
+    domain: '{{ __t_host.domain | default(omit) }}'
+    enabled: '{{ __t_host.enabled | default(omit) }}'
+    environment: '{{ __t_host.environment | default(omit) }}'
+    hostgroup: '{{ __t_host.hostgroup | default(omit) }}'
+    image: '{{ __t_host.image | default(omit) }}'
+    interfaces_attributes: '{{ __t_host.interfaces_attributes | default(omit) }}'
+    ip: '{{ __t_host.ip | default(omit) }}'
+    kickstart_repository: '{{ __t_host.kickstart_repository | default(omit) }}'
+    lifecycle_environment: '{{ __t_host.lifecycle_environment | default(omit) }}'
+    location: '{{ __t_host.location | default(omit) }}'
+    mac: '{{ __t_host.mac | default(omit) }}'
+    managed: '{{ __t_host.managed | default(omit) }}'
+    medium: '{{ __t_host.medium | default(omit) }}'
+    openscap_proxy: '{{ __t_host.openscap_proxy | default(omit) }}'
+    operatingsystem: '{{ __t_host.operatingsystem | default(omit) }}'
+    organization: '{{ __t_host.organization | default(omit) }}'
+    owner: '{{ __t_host.owner | default(omit) }}'
+    owner_group: '{{ __t_host.owner_group | default(omit) }}'
+    parameters: '{{ __t_host.parameters | default(omit) }}'
+    provision_method: '{{ __t_host.provision_method | default(omit) }}'
+    ptable: '{{ __t_host.ptable | default(omit) }}'
+    puppet_ca_proxy: '{{ __t_host.puppet_ca_proxy | default(omit) }}'
+    puppet_proxy: '{{ __t_host.puppet_proxy | default(omit) }}'
+    puppetclasses: '{{ __t_host.puppetclasses | default(omit) }}'
+    pxe_loader: '{{ __t_host.pxe_loader | default(omit) }}'
+    realm: '{{ __t_host.realm | default(omit) }}'
+    root_pass: '{{ __t_host.root_pass | default(omit) }}'
+    state: '{{ __t_host.state | default(omit) }}'
+    subnet: '{{ __t_host.subnet | default(omit) }}'
+    subnet6: '{{ __t_host.subnet6 | default(omit) }}'
+...

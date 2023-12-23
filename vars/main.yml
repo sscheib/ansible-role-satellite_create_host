@@ -1,0 +1,25 @@
+---
+# mandatory variables
+#
+
+# username to connect to the Satellite API with
+_sat_username: '{{ sat_username | mandatory }}'
+
+# password to use for the user to connect to the Satellite API with
+_sat_password: '{{ sat_password | mandatory }}'
+
+# Satellite server URL (including http:// or https://)
+_sat_server_url: '{{ sat_server_url | mandatory }}'
+
+# hosts to create in Satellite
+_sat_hosts: '{{ sat_hosts | mandatory }}'
+
+# optional variables
+#
+
+# whether to validate certificates when connecting to the Satellite API
+_sat_validate_certs: '{{ sat_validate_certs | default(_def_sat_validate_certs) }}'
+
+# whether to quiet assert statements
+_sat_quiet_assert: '{{ sat_quiet_assert | default(_def_sat_quiet_assert) }}'
+...
