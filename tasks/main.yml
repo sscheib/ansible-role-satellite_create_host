@@ -3,7 +3,7 @@
   ansible.builtin.include_tasks:
     file: 'assert.yml'
 
-- name: 'Include tasks to create hosts in Satellite: {{ __t_sat_host }}'
+- name: 'Include tasks to create hosts in Satellite: {{ _sat_server_url }}'
   ansible.builtin.include_tasks:
     file: 'create_host.yml'
   vars:
